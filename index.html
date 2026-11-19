@@ -1,76 +1,462 @@
+
 <!DOCTYPE html>
 <html lang="th">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#fff8f2">
+<meta name="theme-color" content="#f5fbff">
 <meta name="description" content="Vibe Daily — Your daily dose of good vibes. ข่าวสารรอบวัน อ่านง่าย ทันเหตุการณ์">
 <title>Vibe Daily | Your daily dose of good vibes</title>
+
 <style>
-:root{--navy:#315b83;--blue:#c9edff;--blue2:#edf8ff;--cream:#fffaf2;--paper:#ffffff;--ink:#35516b;--muted:#71869a;--line:#e5edf5;--accent:#69bde8;--shadow:0 12px 32px rgba(67,119,157,.12)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:Tahoma,"Leelawadee UI",sans-serif;line-height:1.65}
-a{color:inherit;text-decoration:none}button,input,textarea,select{font:inherit}.wrap{width:min(1180px,calc(100% - 36px));margin:auto}
-.topline{background:linear-gradient(90deg,#6dbde8,#9bcff0,#f3aebd);color:#fff;font-size:12px;padding:7px 0}.topline .wrap{display:flex;justify-content:space-between;gap:12px}
-header{background:rgba(255,250,245,.96);border-bottom:1px solid #e8eaf3;position:sticky;top:0;z-index:10;backdrop-filter:blur(12px)}
-.brandrow{display:flex;align-items:center;justify-content:space-between;padding:18px 0 13px;gap:20px}
-.brand{display:flex;align-items:center;gap:12px}.brandmark{font-size:43px;line-height:.95;font-weight:800;letter-spacing:-2px;color:var(--navy)}.brandmark span{display:block;font-size:31px;font-weight:300;letter-spacing:-1px}.tagline{font-family:Georgia,serif;color:#8b8190;font-size:14px;margin-top:4px}
-.header-actions{display:flex;gap:10px;align-items:center}.search{border:1px solid #d8eaf5;border-radius:999px;padding:9px 14px;background:#fff;width:190px;outline:none}.search:focus{border-color:var(--accent)}
-.nav{display:flex;align-items:center;gap:0;overflow:auto;white-space:nowrap;border-top:1px solid #edf0f5}.nav a,.nav button{padding:12px 17px;color:var(--navy);font-weight:700;font-size:14px;border:0;background:none;cursor:pointer}.nav a:hover,.nav button:hover,.nav .active{background:#fff0f3;color:#b65f83}
-.breaking{margin:22px 0 18px;background:linear-gradient(90deg,#e7f7ff,#fff0f2,#fff7df);border:1px solid #e4eafa;border-radius:12px;display:flex;align-items:center;overflow:hidden}.breaking strong{background:linear-gradient(100deg,#559fce,#9a8acb);color:white;padding:10px 16px;font-size:13px;white-space:nowrap}.breaking p{margin:0;padding:8px 14px;font-size:14px}
-.section-head{display:flex;justify-content:space-between;align-items:end;margin:28px 0 14px;border-bottom:2px solid #a9d8f0;padding-bottom:9px}.section-head h2{font-size:21px;margin:0;color:var(--navy)}.section-head small{color:var(--muted)}
-.hero-grid{display:grid;grid-template-columns:1.65fr 1fr;gap:18px}.hero{position:relative;min-height:380px;border-radius:18px;overflow:hidden;background:linear-gradient(135deg,#dff5ff,#ffe9ef,#fff4cf);box-shadow:var(--shadow);display:flex;align-items:end}.hero-art{position:absolute;inset:0;background:radial-gradient(circle at 75% 25%,rgba(255,255,255,.95) 0 7%,transparent 7.5%),radial-gradient(circle at 15% 80%,rgba(255,255,255,.75) 0 10%,transparent 10.5%),linear-gradient(125deg,#bfe9ff 0%,#ffe0e9 52%,#fff0c4 100%)}.hero-art:after{content:"VIBE DAILY";position:absolute;right:7%;top:12%;font-size:clamp(38px,6vw,76px);font-weight:800;letter-spacing:-3px;color:rgba(49,91,131,.13)}.hero-content{position:relative;padding:30px;width:100%;background:linear-gradient(transparent,rgba(39,57,78,.78));color:white}.tag{display:inline-block;background:#e2f4ff;color:#376a91;padding:4px 10px;border-radius:999px;font-size:11px;font-weight:700;margin-bottom:10px}.hero .tag{background:#fff0f3;color:#a65377}.hero h1{font-size:clamp(25px,3.5vw,38px);line-height:1.35;margin:0 0 9px}.meta{font-size:12px;opacity:.78}
-.side-stories{display:grid;grid-template-rows:1fr 1fr;gap:18px}.side-story{border-radius:16px;overflow:hidden;background:var(--paper);box-shadow:var(--shadow);display:grid;grid-template-columns:42% 1fr;min-height:180px}.thumb{background:linear-gradient(135deg,#c8edff,#ffe5ed 58%,#fff1c9);display:grid;place-items:center;color:rgba(55,91,125,.48);font-size:34px;font-weight:800}.side-story .story-text{padding:17px}.side-story h3{font-size:17px;line-height:1.45;margin:0 0 8px}
-.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:var(--paper);border:1px solid var(--line);border-radius:15px;overflow:hidden;box-shadow:0 6px 20px rgba(74,113,148,.06);transition:.2s}.card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}.card .thumb{height:155px}.card-body{padding:16px}.card h3{font-size:17px;line-height:1.5;margin:0 0 8px}.excerpt{font-size:13px;color:#718398;margin:0 0 12px}.card .meta{color:var(--muted);opacity:1}
-.category-pills{display:flex;gap:9px;flex-wrap:wrap;margin:18px 0}.category-pills button{border:1px solid #dceaf4;background:#fff;border-radius:999px;padding:8px 15px;color:var(--navy);cursor:pointer}.category-pills button.active,.category-pills button:hover{background:linear-gradient(100deg,#70bfe8,#b49bd7);color:white;border-color:transparent}
-.content-layout{display:grid;grid-template-columns:1fr 290px;gap:24px}.list-story{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:15px 0;border-bottom:1px solid var(--line)}.list-story .thumb{height:110px;border-radius:10px}.list-story h3{margin:3px 0 5px;font-size:17px}.sidebar-box{background:linear-gradient(135deg,#e9f7ff,#fff0f3);border:1px solid #e5eaf4;border-radius:15px;padding:18px;margin-bottom:16px}.sidebar-box h3{margin:0 0 10px;color:var(--navy);font-size:17px}.popular{padding:10px 0;border-bottom:1px solid #d9e8f1;font-size:14px}.popular:last-child{border:0}
-footer{margin-top:55px;background:linear-gradient(100deg,#416f9b,#8a83b8,#c783a0);color:#fff;padding:32px 0}.footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center}.footer-brand{font-size:25px;font-weight:800}.footer-brand span{font-weight:300}.footer-note{font-family:Georgia,serif;color:#f8eaf0}
-.admin-fab{position:fixed;right:18px;bottom:18px;background:linear-gradient(100deg,#559fce,#9c88c5);color:white;border:0;border-radius:999px;padding:12px 18px;box-shadow:var(--shadow);cursor:pointer;z-index:20}
-.modal{display:none;position:fixed;inset:0;background:rgba(38,55,75,.48);z-index:30;padding:18px;overflow:auto}.modal.open{display:grid;place-items:center}.panel{background:var(--paper);border-radius:18px;padding:22px;width:min(650px,100%);box-shadow:var(--shadow)}.panel-head{display:flex;justify-content:space-between;align-items:center}.panel h2{margin:0;color:var(--navy)}.close{border:0;background:#edf7ff;border-radius:50%;width:36px;height:36px;cursor:pointer}.field{display:grid;gap:6px;margin:13px 0}.field label{font-weight:700;font-size:13px;color:var(--navy)}.field input,.field textarea,.field select{width:100%;border:1px solid #d8eaf5;border-radius:9px;padding:10px;background:white}.field textarea{min-height:105px;resize:vertical}.btn{border:0;border-radius:9px;padding:10px 16px;background:linear-gradient(100deg,#559fce,#9c88c5);color:white;cursor:pointer}.btn.secondary{background:#ffe8ef;color:#a65377}.admin-note{font-size:12px;color:var(--muted);background:#f0f8ff;padding:10px;border-radius:9px}
-.empty{padding:35px;text-align:center;color:var(--muted);background:white;border-radius:12px}
-@media(max-width:800px){.hero-grid,.content-layout{grid-template-columns:1fr}.hero{min-height:330px}.side-stories{grid-template-columns:1fr 1fr;grid-template-rows:auto}.side-story{grid-template-columns:1fr}.side-story .thumb{height:110px}.news-grid{grid-template-columns:repeat(2,1fr)}.search{width:145px}}
-@media(max-width:560px){.wrap{width:min(100% - 24px,1180px)}.topline .wrap{font-size:10px}.brandrow{padding:13px 0}.brandmark{font-size:35px}.brandmark span{font-size:26px}.tagline{font-size:11px}.header-actions .search{width:38px;padding:8px 10px}.header-actions .search:focus{width:145px}.nav a,.nav button{padding:11px 13px;font-size:13px}.breaking{margin:14px 0}.breaking p{font-size:12px}.hero{min-height:310px}.hero-content{padding:20px}.side-stories{grid-template-columns:1fr}.side-story{grid-template-columns:36% 1fr;min-height:130px}.side-story .thumb{height:auto}.news-grid{grid-template-columns:1fr 1fr;gap:10px}.card .thumb{height:115px}.card-body{padding:11px}.card h3{font-size:14px}.excerpt{font-size:11px}.list-story{grid-template-columns:105px 1fr;gap:11px}.list-story .thumb{height:90px}.list-story h3{font-size:14px}.footer-inner{display:block}.footer-note{font-size:13px}}
+:root{
+ --navy:#174a70;
+ --blue:#45a9df;
+ --blue2:#e8f6ff;
+ --cream:#f5fbff;
+ --paper:#ffffff;
+ --ink:#29465d;
+ --muted:#71879a;
+ --line:#e0edf5;
+ --accent:#39a9df;
+ --mint:#dff6ef;
+ --yellow:#fff3cf;
+ --shadow:0 12px 32px rgba(36,104,148,.10);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+ margin:0;
+ background:var(--cream);
+ color:var(--ink);
+ font-family:Tahoma,"Leelawadee UI",sans-serif;
+ line-height:1.65
+}
+a{color:inherit;text-decoration:none}
+button,input,textarea,select{font:inherit}
+.wrap{width:min(1180px,calc(100% - 36px));margin:auto}
+
+.topline{
+ background:linear-gradient(90deg,#278fc8,#42b6d2,#63c9bd);
+ color:#fff;font-size:12px;padding:7px 0
+}
+.topline .wrap{display:flex;justify-content:space-between;gap:12px}
+
+header{
+ background:rgba(255,255,255,.96);
+ border-bottom:1px solid var(--line);
+ position:sticky;top:0;z-index:10;
+ backdrop-filter:blur(12px)
+}
+.brandrow{
+ display:flex;align-items:center;justify-content:space-between;
+ padding:18px 0 13px;gap:20px
+}
+.brand{display:flex;align-items:center;gap:12px}
+.brandmark{
+ font-size:43px;line-height:.95;font-weight:800;
+ letter-spacing:-2px;color:var(--navy)
+}
+.brandmark span{
+ display:block;font-size:31px;font-weight:300;
+ letter-spacing:-1px;color:#3c9bc9
+}
+.tagline{
+ font-family:Georgia,serif;color:#8194a3;
+ font-size:14px;margin-top:4px
+}
+.header-actions{display:flex;gap:10px;align-items:center}
+.search{
+ border:1px solid #d8eaf5;border-radius:999px;
+ padding:9px 14px;background:#fff;width:190px;outline:none
+}
+.search:focus{border-color:var(--accent)}
+
+.nav{
+ display:flex;align-items:center;gap:0;overflow:auto;
+ white-space:nowrap;border-top:1px solid #edf3f7
+}
+.nav a,.nav button{
+ padding:12px 17px;color:var(--navy);
+ font-weight:700;font-size:14px;border:0;background:none;cursor:pointer
+}
+.nav a:hover,.nav button:hover,.nav .active{
+ background:#e8f6ff;color:#1688bd
+}
+
+.breaking{
+ margin:22px 0 18px;
+ background:linear-gradient(90deg,#e2f5ff,#e6faf5,#fff7df);
+ border:1px solid #dceef5;border-radius:12px;
+ display:flex;align-items:center;overflow:hidden
+}
+.breaking strong{
+ background:linear-gradient(100deg,#238bc5,#35b6bc);
+ color:white;padding:10px 16px;font-size:13px;white-space:nowrap
+}
+.breaking p{margin:0;padding:8px 14px;font-size:14px}
+
+.section-head{
+ display:flex;justify-content:space-between;align-items:end;
+ margin:28px 0 14px;border-bottom:2px solid #a9dcf1;padding-bottom:9px
+}
+.section-head h2{font-size:21px;margin:0;color:var(--navy)}
+.section-head small{color:var(--muted)}
+
+.hero-grid{display:grid;grid-template-columns:1.65fr 1fr;gap:18px}
+.hero{
+ position:relative;min-height:380px;border-radius:18px;overflow:hidden;
+ background:linear-gradient(135deg,#d9f2ff,#e1f8f1,#fff3d2);
+ box-shadow:var(--shadow);display:flex;align-items:end
+}
+.hero-art{
+ position:absolute;inset:0;
+ background:
+ radial-gradient(circle at 75% 25%,rgba(255,255,255,.95) 0 7%,transparent 7.5%),
+ radial-gradient(circle at 15% 80%,rgba(255,255,255,.75) 0 10%,transparent 10.5%),
+ linear-gradient(125deg,#aee3ff 0%,#d8f5ef 58%,#fff0c8 100%)
+}
+.hero-art:after{
+ content:"VIBE DAILY";position:absolute;right:7%;top:12%;
+ font-size:clamp(38px,6vw,76px);font-weight:800;
+ letter-spacing:-3px;color:rgba(23,74,112,.13)
+}
+.hero-content{
+ position:relative;padding:30px;width:100%;
+ background:linear-gradient(transparent,rgba(23,55,78,.82));
+ color:white
+}
+.tag{
+ display:inline-block;background:#e2f4ff;color:#2676a1;
+ padding:4px 10px;border-radius:999px;font-size:11px;
+ font-weight:700;margin-bottom:10px
+}
+.hero .tag{background:#d9f5ed;color:#167c72}
+.hero h1{font-size:clamp(25px,3.5vw,38px);line-height:1.35;margin:0 0 9px}
+.meta{font-size:12px;opacity:.78}
+
+.side-stories{display:grid;grid-template-rows:1fr 1fr;gap:18px}
+.side-story{
+ border-radius:16px;overflow:hidden;background:var(--paper);
+ box-shadow:var(--shadow);display:grid;
+ grid-template-columns:42% 1fr;min-height:180px
+}
+.thumb{
+ background:linear-gradient(135deg,#c7ebff,#d8f5ed 65%,#fff0ca);
+ display:grid;place-items:center;color:rgba(30,100,140,.55);
+ font-size:34px;font-weight:800
+}
+.side-story .story-text{padding:17px}
+.side-story h3{font-size:17px;line-height:1.45;margin:0 0 8px}
+
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{
+ background:var(--paper);border:1px solid var(--line);
+ border-radius:15px;overflow:hidden;
+ box-shadow:0 6px 20px rgba(40,100,140,.05);transition:.2s
+}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.card .thumb{height:155px}
+.card-body{padding:16px}
+.card h3{font-size:17px;line-height:1.5;margin:0 0 8px}
+.excerpt{font-size:13px;color:#718398;margin:0 0 12px}
+.card .meta{color:var(--muted);opacity:1}
+
+.category-pills{display:flex;gap:9px;flex-wrap:wrap;margin:18px 0}
+.category-pills button{
+ border:1px solid #dceaf4;background:#fff;border-radius:999px;
+ padding:8px 15px;color:var(--navy);cursor:pointer
+}
+.category-pills button.active,.category-pills button:hover{
+ background:linear-gradient(100deg,#299bd0,#48b9bd);
+ color:white;border-color:transparent
+}
+
+.content-layout{display:grid;grid-template-columns:1fr 290px;gap:24px}
+.list-story{
+ display:grid;grid-template-columns:150px 1fr;gap:16px;
+ padding:15px 0;border-bottom:1px solid var(--line)
+}
+.list-story .thumb{height:110px;border-radius:10px}
+.list-story h3{margin:3px 0 5px;font-size:17px}
+
+.sidebar-box{
+ background:linear-gradient(135deg,#e6f6ff,#e8f8f2);
+ border:1px solid #e0edf5;border-radius:15px;
+ padding:18px;margin-bottom:16px
+}
+.sidebar-box h3{margin:0 0 10px;color:var(--navy);font-size:17px}
+.popular{padding:10px 0;border-bottom:1px solid #d9e8f1;font-size:14px}
+.popular:last-child{border:0}
+
+footer{
+ margin-top:55px;
+ background:linear-gradient(100deg,#174f78,#218eb5,#36aaa8);
+ color:#fff;padding:32px 0
+}
+.footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center}
+.footer-brand{font-size:25px;font-weight:800}
+.footer-brand span{font-weight:300}
+.footer-note{font-family:Georgia,serif;color:#e0f7ff}
+
+.admin-fab{
+ position:fixed;right:18px;bottom:18px;
+ background:linear-gradient(100deg,#238fc5,#32aaa9);
+ color:white;border:0;border-radius:999px;
+ padding:12px 18px;box-shadow:var(--shadow);
+ cursor:pointer;z-index:20
+}
+.modal{
+ display:none;position:fixed;inset:0;background:rgba(24,49,68,.48);
+ z-index:30;padding:18px;overflow:auto
+}
+.modal.open{display:grid;place-items:center}
+.panel{
+ background:var(--paper);border-radius:18px;padding:22px;
+ width:min(650px,100%);box-shadow:var(--shadow)
+}
+.panel-head{display:flex;justify-content:space-between;align-items:center}
+.panel h2{margin:0;color:var(--navy)}
+.close{
+ border:0;background:#e8f6ff;border-radius:50%;
+ width:36px;height:36px;cursor:pointer
+}
+.field{display:grid;gap:6px;margin:13px 0}
+.field label{font-weight:700;font-size:13px;color:var(--navy)}
+.field input,.field textarea,.field select{
+ width:100%;border:1px solid #d8eaf5;border-radius:9px;
+ padding:10px;background:white
+}
+.field textarea{min-height:105px;resize:vertical}
+.btn{
+ border:0;border-radius:9px;padding:10px 16px;
+ background:linear-gradient(100deg,#238fc5,#32aaa9);
+ color:white;cursor:pointer
+}
+.btn.secondary{background:#e5f5ff;color:#2379a4}
+.admin-note{
+ font-size:12px;color:var(--muted);
+ background:#eff8fd;padding:10px;border-radius:9px
+}
+.empty{
+ padding:35px;text-align:center;color:var(--muted);
+ background:white;border-radius:12px
+}
+
+@media(max-width:800px){
+ .hero-grid,.content-layout{grid-template-columns:1fr}
+ .hero{min-height:330px}
+ .side-stories{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+ .side-story{grid-template-columns:1fr}
+ .side-story .thumb{height:110px}
+ .news-grid{grid-template-columns:repeat(2,1fr)}
+ .search{width:145px}
+}
+@media(max-width:560px){
+ .wrap{width:min(100% - 24px,1180px)}
+ .topline .wrap{font-size:10px}
+ .brandrow{padding:13px 0}
+ .brandmark{font-size:35px}
+ .brandmark span{font-size:26px}
+ .tagline{font-size:11px}
+ .header-actions .search{width:38px;padding:8px 10px}
+ .header-actions .search:focus{width:145px}
+ .nav a,.nav button{padding:11px 13px;font-size:13px}
+ .breaking{margin:14px 0}
+ .breaking p{font-size:12px}
+ .hero{min-height:310px}
+ .hero-content{padding:20px}
+ .side-stories{grid-template-columns:1fr}
+ .side-story{grid-template-columns:36% 1fr;min-height:130px}
+ .side-story .thumb{height:auto}
+ .news-grid{grid-template-columns:1fr 1fr;gap:10px}
+ .card .thumb{height:115px}
+ .card-body{padding:11px}
+ .card h3{font-size:14px}
+ .excerpt{font-size:11px}
+ .list-story{grid-template-columns:105px 1fr;gap:11px}
+ .list-story .thumb{height:90px}
+ .list-story h3{font-size:14px}
+ .footer-inner{display:block}
+ .footer-note{font-size:13px}
+}
 </style>
 </head>
+
 <body>
-<div class="topline"><div class="wrap"><span id="today">ข่าวสารรอบวัน อ่านง่าย ทันเหตุการณ์</span><span>Your daily dose of good vibes</span></div></div>
+<div class="topline">
+ <div class="wrap">
+  <span id="today">ข่าวสารรอบวัน อ่านง่าย ทันเหตุการณ์</span>
+  <span>Your daily dose of good vibes</span>
+ </div>
+</div>
+
 <header>
  <div class="wrap">
   <div class="brandrow">
-   <a class="brand" href="#" aria-label="Vibe Daily หน้าแรก"><div><div class="brandmark">Vibe<span>Daily</span></div><div class="tagline">Your daily dose of good vibes</div></div></a>
-   <div class="header-actions"><input class="search" id="searchInput" placeholder="ค้นหาข่าว..." aria-label="ค้นหาข่าว"><button class="btn secondary" onclick="document.getElementById('searchInput').focus()">ค้นหา</button></div>
+   <a class="brand" href="#" aria-label="Vibe Daily หน้าแรก">
+    <div>
+     <div class="brandmark">Vibe<span>Daily</span></div>
+     <div class="tagline">Your daily dose of good vibes</div>
+    </div>
+   </a>
+   <div class="header-actions">
+    <input class="search" id="searchInput" placeholder="ค้นหาข่าว..." aria-label="ค้นหาข่าว">
+    <button class="btn secondary" onclick="document.getElementById('searchInput').focus()">ค้นหา</button>
+   </div>
   </div>
-  <nav class="nav" id="nav"><a href="#" class="active" data-category="ทั้งหมด">หน้าแรก</a><a href="#latest" data-category="การเมือง">การเมือง</a><a href="#latest" data-category="เศรษฐกิจ">เศรษฐกิจ</a><a href="#latest" data-category="ต่างประเทศ">ต่างประเทศ</a><a href="#latest" data-category="สังคม">สังคม</a><a href="#latest" data-category="บันเทิง">บันเทิง</a><a href="#latest" data-category="กีฬา">กีฬา</a><a href="#latest" data-category="เทคโนโลยี">เทคโนโลยี</a></nav>
+
+  <nav class="nav" id="nav">
+   <a href="#" class="active" data-category="ทั้งหมด">หน้าแรก</a>
+   <a href="#latest" data-category="การเมือง">การเมือง</a>
+   <a href="#latest" data-category="เศรษฐกิจ">เศรษฐกิจ</a>
+   <a href="#latest" data-category="ต่างประเทศ">ต่างประเทศ</a>
+   <a href="#latest" data-category="สังคม">สังคม</a>
+   <a href="#latest" data-category="บันเทิง">บันเทิง</a>
+   <a href="#latest" data-category="กีฬา">กีฬา</a>
+   <a href="#latest" data-category="เทคโนโลยี">เทคโนโลยี</a>
+  </nav>
  </div>
 </header>
+
 <main class="wrap">
- <div class="breaking"><strong>VIBE UPDATE</strong><p>ติดตามประเด็นสำคัญและเรื่องราวที่น่าสนใจได้ทุกวันที่ Vibe Daily</p></div>
+ <div class="breaking">
+  <strong>VIBE UPDATE</strong>
+  <p>ติดตามประเด็นสำคัญและเรื่องราวที่น่าสนใจได้ทุกวันที่ Vibe Daily</p>
+ </div>
+
  <section class="hero-grid" id="featured">
-  <article class="hero"><div class="hero-art"></div><div class="hero-content"><span class="tag">ข่าวเด่นประจำวัน</span><h1>Vibe Daily พื้นที่ข่าวสารรอบวัน ที่คัดสรรมาเพื่อคุณ</h1><div class="meta">ทีมข่าว Vibe Daily · อ่านง่าย เข้าใจไว</div></div></article>
+  <article class="hero">
+   <div class="hero-art"></div>
+   <div class="hero-content">
+    <span class="tag">ข่าวเด่นประจำวัน</span>
+    <h1>Vibe Daily พื้นที่ข่าวสารรอบวัน ที่คัดสรรมาเพื่อคุณ</h1>
+    <div class="meta">ทีมข่าว Vibe Daily · อ่านง่าย เข้าใจไว</div>
+   </div>
+  </article>
+
   <div class="side-stories">
-   <article class="side-story"><div class="thumb">VD</div><div class="story-text"><span class="tag">EDITOR'S PICK</span><h3>อัปเดตเรื่องราวสำคัญ พร้อมมุมมองที่เข้าใจง่าย</h3><div class="meta">Vibe Daily · ข่าวเด่น</div></div></article>
-   <article class="side-story"><div class="thumb">NEWS</div><div class="story-text"><span class="tag">น่ารู้วันนี้</span><h3>รวมประเด็นที่คุณไม่ควรพลาดในแต่ละวัน</h3><div class="meta">Vibe Daily · ข่าวล่าสุด</div></div></article>
+   <article class="side-story">
+    <div class="thumb">VD</div>
+    <div class="story-text">
+     <span class="tag">EDITOR'S PICK</span>
+     <h3>อัปเดตเรื่องราวสำคัญ พร้อมมุมมองที่เข้าใจง่าย</h3>
+     <div class="meta">Vibe Daily · ข่าวเด่น</div>
+    </div>
+   </article>
+   <article class="side-story">
+    <div class="thumb">NEWS</div>
+    <div class="story-text">
+     <span class="tag">น่ารู้วันนี้</span>
+     <h3>รวมประเด็นที่คุณไม่ควรพลาดในแต่ละวัน</h3>
+     <div class="meta">Vibe Daily · ข่าวล่าสุด</div>
+    </div>
+   </article>
   </div>
  </section>
+
  <section id="latest">
-  <div class="section-head"><h2>ข่าวล่าสุด</h2><small>อัปเดตเรื่องราวที่น่าสนใจ</small></div>
-  <div class="category-pills" id="filters"><button class="active" data-filter="ทั้งหมด">ทั้งหมด</button><button data-filter="การเมือง">การเมือง</button><button data-filter="เศรษฐกิจ">เศรษฐกิจ</button><button data-filter="สังคม">สังคม</button><button data-filter="ต่างประเทศ">ต่างประเทศ</button><button data-filter="เทคโนโลยี">เทคโนโลยี</button><button data-filter="บันเทิง">บันเทิง</button><button data-filter="กีฬา">กีฬา</button></div>
-  <div class="content-layout"><div><div class="news-grid" id="newsGrid"></div><div id="empty" class="empty" hidden>ยังไม่มีข่าวในหมวดหมู่นี้</div></div>
-   <aside><div class="sidebar-box"><h3>Vibe Daily คืออะไร?</h3><p style="font-size:13px;margin:0">พื้นที่รวมข่าวสารและเรื่องราวรอบวัน นำเสนออย่างกระชับ อ่านง่าย พร้อมที่มาเพื่อให้คุณติดตามประเด็นสำคัญได้สะดวก</p></div><div class="sidebar-box"><h3>ข่าวยอดนิยม</h3><div class="popular">01 · ประเด็นที่คนกำลังให้ความสนใจ</div><div class="popular">02 · เรื่องใกล้ตัวที่ควรรู้</div><div class="popular">03 · เทรนด์ใหม่ในโลกดิจิทัล</div></div></aside>
+  <div class="section-head">
+   <h2>ข่าวล่าสุด</h2>
+   <small>อัปเดตเรื่องราวที่น่าสนใจ</small>
+  </div>
+
+  <div class="category-pills" id="filters">
+   <button class="active" data-filter="ทั้งหมด">ทั้งหมด</button>
+   <button data-filter="การเมือง">การเมือง</button>
+   <button data-filter="เศรษฐกิจ">เศรษฐกิจ</button>
+   <button data-filter="สังคม">สังคม</button>
+   <button data-filter="ต่างประเทศ">ต่างประเทศ</button>
+   <button data-filter="เทคโนโลยี">เทคโนโลยี</button>
+   <button data-filter="บันเทิง">บันเทิง</button>
+   <button data-filter="กีฬา">กีฬา</button>
+  </div>
+
+  <div class="content-layout">
+   <div>
+    <div class="news-grid" id="newsGrid"></div>
+    <div id="empty" class="empty" hidden>ยังไม่มีข่าวในหมวดหมู่นี้</div>
+   </div>
+
+   <aside>
+    <div class="sidebar-box">
+     <h3>Vibe Daily คืออะไร?</h3>
+     <p style="font-size:13px;margin:0">
+      พื้นที่รวมข่าวสารและเรื่องราวรอบวัน นำเสนออย่างกระชับ อ่านง่าย พร้อมที่มาเพื่อให้คุณติดตามประเด็นสำคัญได้สะดวก
+     </p>
+    </div>
+    <div class="sidebar-box">
+     <h3>ข่าวยอดนิยม</h3>
+     <div class="popular">01 · ประเด็นที่คนกำลังให้ความสนใจ</div>
+     <div class="popular">02 · เรื่องใกล้ตัวที่ควรรู้</div>
+     <div class="popular">03 · เทรนด์ใหม่ในโลกดิจิทัล</div>
+    </div>
+   </aside>
   </div>
  </section>
 </main>
-<footer><div class="wrap footer-inner"><div><div class="footer-brand">Vibe <span>Daily</span></div><div class="footer-note">Your daily dose of good vibes</div></div><div style="font-size:12px;opacity:.8">© <span id="year"></span> Vibe Daily. All rights reserved.</div></div></footer>
+
+<footer>
+ <div class="wrap footer-inner">
+  <div>
+   <div class="footer-brand">Vibe <span>Daily</span></div>
+   <div class="footer-note">Your daily dose of good vibes</div>
+  </div>
+  <div style="font-size:12px;opacity:.8">
+   © <span id="year"></span> Vibe Daily. All rights reserved.
+  </div>
+ </div>
+</footer>
+
 <button class="admin-fab" onclick="openAdmin()">＋ จัดการข่าว</button>
-<div class="modal" id="adminModal" role="dialog" aria-modal="true" aria-label="จัดการข่าว"><div class="panel">
- <div class="panel-head"><h2>จัดการข่าว · Vibe Daily</h2><button class="close" onclick="closeAdmin()">✕</button></div>
- <p class="admin-note">เดโมสำหรับทดลองหน้าตาระบบบนเครื่องนี้ ข่าวที่เพิ่มจะถูกเก็บไว้ในเบราว์เซอร์เครื่องนี้เท่านั้น ยังไม่ใช่ระบบหลังบ้านออนไลน์หรือระบบ AI อัตโนมัติ</p>
- <form id="newsForm"><div class="field"><label for="title">พาดหัวข่าว</label><input id="title" required placeholder="เขียนพาดหัวข่าว"></div>
- <div class="field"><label for="category">หมวดหมู่</label><select id="category"><option>การเมือง</option><option>เศรษฐกิจ</option><option>ต่างประเทศ</option><option>สังคม</option><option>บันเทิง</option><option>กีฬา</option><option>เทคโนโลยี</option></select></div>
- <div class="field"><label for="excerpt">เนื้อหาย่อ</label><textarea id="excerpt" required placeholder="สรุปข่าวสั้น ๆ"></textarea></div>
- <div class="field"><label for="source">แหล่งข่าว / URL</label><input id="source" placeholder="ใส่ชื่อแหล่งข่าวหรือลิงก์ต้นทาง"></div>
- <button class="btn" type="submit">บันทึกข่าวตัวอย่าง</button></form>
- <div class="field"><label>ข่าวที่เพิ่มในเครื่องนี้</label><div id="adminList" class="admin-note">ยังไม่มีข่าวที่เพิ่ม</div></div>
- </div></div>
+
+<div class="modal" id="adminModal" role="dialog" aria-modal="true" aria-label="จัดการข่าว">
+ <div class="panel">
+  <div class="panel-head">
+   <h2>จัดการข่าว · Vibe Daily</h2>
+   <button class="close" onclick="closeAdmin()">✕</button>
+  </div>
+
+  <p class="admin-note">
+   เดโมสำหรับทดลองหน้าตาระบบบนเครื่องนี้ ข่าวที่เพิ่มจะถูกเก็บไว้ในเบราว์เซอร์เครื่องนี้เท่านั้น ยังไม่ใช่ระบบหลังบ้านออนไลน์หรือระบบ AI อัตโนมัติ
+  </p>
+
+  <form id="newsForm">
+   <div class="field">
+    <label for="title">พาดหัวข่าว</label>
+    <input id="title" required placeholder="เขียนพาดหัวข่าว">
+   </div>
+   <div class="field">
+    <label for="category">หมวดหมู่</label>
+    <select id="category">
+     <option>การเมือง</option>
+     <option>เศรษฐกิจ</option>
+     <option>ต่างประเทศ</option>
+     <option>สังคม</option>
+     <option>บันเทิง</option>
+     <option>กีฬา</option>
+     <option>เทคโนโลยี</option>
+    </select>
+   </div>
+   <div class="field">
+    <label for="excerpt">เนื้อหาย่อ</label>
+    <textarea id="excerpt" required placeholder="สรุปข่าวสั้น ๆ"></textarea>
+   </div>
+   <div class="field">
+    <label for="source">แหล่งข่าว / URL</label>
+    <input id="source" placeholder="ใส่ชื่อแหล่งข่าวหรือลิงก์ต้นทาง">
+   </div>
+   <button class="btn" type="submit">บันทึกข่าวตัวอย่าง</button>
+  </form>
+
+  <div class="field">
+   <label>ข่าวที่เพิ่มในเครื่องนี้</label>
+   <div id="adminList" class="admin-note">ยังไม่มีข่าวที่เพิ่ม</div>
+  </div>
+ </div>
+</div>
+
 <script>
 const seed=[
  {id:1,category:"เทคโนโลยี",title:"เทคโนโลยีเปลี่ยนชีวิต: เรื่องใกล้ตัวที่ควรรู้ในวันนี้",excerpt:"ติดตามความเคลื่อนไหวในโลกดิจิทัล พร้อมทำความเข้าใจเทรนด์ใหม่ที่ส่งผลต่อชีวิตประจำวัน",source:"Vibe Daily"},
@@ -80,25 +466,129 @@ const seed=[
  {id:5,category:"บันเทิง",title:"อัปเดตวงการบันเทิงและไลฟ์สไตล์ที่น่าสนใจ",excerpt:"เรื่องราวคนดัง ภาพยนตร์ เพลง และกระแสที่กำลังเป็นที่พูดถึง",source:"Vibe Daily"},
  {id:6,category:"กีฬา",title:"เกาะติดสนาม: ข่าวกีฬาและผลการแข่งขันที่น่าติดตาม",excerpt:"รวมความเคลื่อนไหวจากแวดวงกีฬา พร้อมประเด็นก่อนและหลังการแข่งขัน",source:"Vibe Daily"}
 ];
+
 let articles=JSON.parse(localStorage.getItem("vibeArticles")||"null")||seed;
 let active="ทั้งหมด",query="";
-const icons={การเมือง:"◈",เศรษฐกิจ:"฿",ต่างประเทศ:"◎",สังคม:"✦",บันเทิง:"♫",กีฬา:"◉",เทคโนโลยี:"⌘"};
-function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+
+const icons={
+ การเมือง:"◈",
+ เศรษฐกิจ:"฿",
+ ต่างประเทศ:"◎",
+ สังคม:"✦",
+ บันเทิง:"♫",
+ กีฬา:"◉",
+ เทคโนโลยี:"⌘"
+};
+
+function esc(s){
+ return String(s).replace(/[&<>"']/g,c=>({
+  "&":"&amp;",
+  "<":"&lt;",
+  ">":"&gt;",
+  '"':"&quot;",
+  "'":"&#39;"
+ }[c]));
+}
+
 function render(){
- const filtered=articles.filter(a=>(active==="ทั้งหมด"||a.category===active)&&(`${a.title} ${a.excerpt} ${a.category}`).toLowerCase().includes(query.toLowerCase()));
- document.getElementById("newsGrid").innerHTML=filtered.map(a=>`<article class="card"><div class="thumb">${icons[a.category]||"VD"}</div><div class="card-body"><span class="tag">${esc(a.category)}</span><h3>${esc(a.title)}</h3><p class="excerpt">${esc(a.excerpt)}</p><div class="meta">${esc(a.source||"Vibe Daily")} · ${new Date().toLocaleDateString("th-TH")}</div></div></article>`).join("");
+ const filtered=articles.filter(a=>
+  (active==="ทั้งหมด"||a.category===active)&&
+  (`${a.title} ${a.excerpt} ${a.category}`).toLowerCase().includes(query.toLowerCase())
+ );
+
+ document.getElementById("newsGrid").innerHTML=filtered.map(a=>`
+  <article class="card">
+   <div class="thumb">${icons[a.category]||"VD"}</div>
+   <div class="card-body">
+    <span class="tag">${esc(a.category)}</span>
+    <h3>${esc(a.title)}</h3>
+    <p class="excerpt">${esc(a.excerpt)}</p>
+    <div class="meta">${esc(a.source||"Vibe Daily")} · ${new Date().toLocaleDateString("th-TH")}</div>
+   </div>
+  </article>
+ `).join("");
+
  document.getElementById("empty").hidden=filtered.length>0;
 }
-document.querySelectorAll("[data-filter]").forEach(b=>b.addEventListener("click",()=>{active=b.dataset.filter;document.querySelectorAll("[data-filter]").forEach(x=>x.classList.toggle("active",x===b));render()}));
-document.querySelectorAll("[data-category]").forEach(b=>b.addEventListener("click",()=>{active=b.dataset.category;document.querySelectorAll("[data-filter]").forEach(x=>x.classList.toggle("active",x.dataset.filter===active));render()}));
-document.getElementById("searchInput").addEventListener("input",e=>{query=e.target.value;render()});
-function openAdmin(){document.getElementById("adminModal").classList.add("open");renderAdmin()}
-function closeAdmin(){document.getElementById("adminModal").classList.remove("open")}
-function renderAdmin(){document.getElementById("adminList").innerHTML=articles.length?articles.map(a=>`<div style="padding:7px 0;border-bottom:1px solid #dceaf4">${esc(a.title)} <span style="color:#71808b">(${esc(a.category)})</span></div>`).join(""):"ยังไม่มีข่าวที่เพิ่ม"}
-document.getElementById("newsForm").addEventListener("submit",e=>{e.preventDefault();const item={id:Date.now(),title:document.getElementById("title").value.trim(),category:document.getElementById("category").value,excerpt:document.getElementById("excerpt").value.trim(),source:document.getElementById("source").value.trim()||"Vibe Daily"};articles.unshift(item);localStorage.setItem("vibeArticles",JSON.stringify(articles));e.target.reset();render();renderAdmin();alert("เพิ่มข่าวตัวอย่างในเบราว์เซอร์นี้แล้ว")});
-document.getElementById("adminModal").addEventListener("click",e=>{if(e.target.id==="adminModal")closeAdmin()});
+
+document.querySelectorAll("[data-filter]").forEach(b=>
+ b.addEventListener("click",()=>{
+  active=b.dataset.filter;
+  document.querySelectorAll("[data-filter]").forEach(x=>
+   x.classList.toggle("active",x===b)
+  );
+  render();
+ })
+);
+
+document.querySelectorAll("[data-category]").forEach(b=>
+ b.addEventListener("click",()=>{
+  active=b.dataset.category;
+  document.querySelectorAll("[data-filter]").forEach(x=>
+   x.classList.toggle("active",x.dataset.filter===active)
+  );
+  render();
+ })
+);
+
+document.getElementById("searchInput").addEventListener("input",e=>{
+ query=e.target.value;
+ render();
+});
+
+function openAdmin(){
+ document.getElementById("adminModal").classList.add("open");
+ renderAdmin();
+}
+
+function closeAdmin(){
+ document.getElementById("adminModal").classList.remove("open");
+}
+
+function renderAdmin(){
+ document.getElementById("adminList").innerHTML=articles.length?
+  articles.map(a=>`
+   <div style="padding:7px 0;border-bottom:1px solid #dceaf4">
+    ${esc(a.title)}
+    <span style="color:#71808b">(${esc(a.category)})</span>
+   </div>
+  `).join("")
+  :"ยังไม่มีข่าวที่เพิ่ม";
+}
+
+document.getElementById("newsForm").addEventListener("submit",e=>{
+ e.preventDefault();
+
+ const item={
+  id:Date.now(),
+  title:document.getElementById("title").value.trim(),
+  category:document.getElementById("category").value,
+  excerpt:document.getElementById("excerpt").value.trim(),
+  source:document.getElementById("source").value.trim()||"Vibe Daily"
+ };
+
+ articles.unshift(item);
+ localStorage.setItem("vibeArticles",JSON.stringify(articles));
+ e.target.reset();
+ render();
+ renderAdmin();
+ alert("เพิ่มข่าวตัวอย่างในเบราว์เซอร์นี้แล้ว");
+});
+
+document.getElementById("adminModal").addEventListener("click",e=>{
+ if(e.target.id==="adminModal")closeAdmin();
+});
+
 document.getElementById("year").textContent=new Date().getFullYear();
-document.getElementById("today").textContent=new Date().toLocaleDateString("th-TH",{weekday:"long",year:"numeric",month:"long",day:"numeric"});
+
+document.getElementById("today").textContent=
+ new Date().toLocaleDateString("th-TH",{
+  weekday:"long",
+  year:"numeric",
+  month:"long",
+  day:"numeric"
+ });
+
 render();
 </script>
 </body>
